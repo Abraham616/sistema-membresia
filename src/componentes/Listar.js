@@ -236,7 +236,7 @@ class Listar extends React.Component {
                                                         <button className="btn btn-dark mb-1" onClick={() => this.agregarSello(usuario.id, usuario.nombre)}>Agregar sello</button>
                                                         <button className="btn btn-dark ms-1 mb-1" onClick={() => this.quitarSello(usuario.id, usuario.nombre)}>Quitar sello</button>                                                        <Link className="btn btn-dark" to={`/Editar/${usuario.id}`}>Editar</Link>
                                                         <Link className= "btn btn-dark ms-1" to={`/Historial_de_registro/${usuario.id}`}>Historial de registro</Link>
-                                                        <Link className= "btn btn-dark ms-1" to={`/Recompensas/${usuario.id}`}>Recompensas</Link>
+                                                        <Link className= "btn btn-dark ms-2" to={`/Recompensas/${usuario.id}`}>Recompensas</Link>
                                                         {/*<button className="btn btn-danger me-2" onClick={() => this.eliminarUsuario(usuario.id)}>Eliminar</button>*/}
                                                         <div className="mb-2"></div>
                                                     </div>
