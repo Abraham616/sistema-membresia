@@ -89,7 +89,7 @@ class Crear extends React.Component {
         return (
             <div>
                 <div className="mb-4"></div>
-                <h1>Nuevo Miembro</h1>
+                <h1>Nuevo Usuario</h1>
                 <form onSubmit={this.enviarForm}>
                     <div className="form-group">
                       <label htmlFor="nombre">Nombre</label>

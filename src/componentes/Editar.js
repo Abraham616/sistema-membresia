@@ -64,6 +64,11 @@ class EditarForm extends React.Component {
 
       console.log(nombre, correo, genero, usuarioId, sucursal);
 
+      if (!nombre || genero === "Selecciona una opción" || !correo) {
+        alert('Error: Faltan datos.');
+        return;
+      }
+
       const tunnelUrl = `https://stubbed-audience-say.ngrok-free.dev/membresias/?actualizar=${usuarioId}`;
 
         const headers = {
