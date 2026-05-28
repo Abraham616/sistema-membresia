@@ -85,7 +85,7 @@ class Login extends React.Component {
         ];
         
         // Contraseña 
-        this.contraseniaCorrecta = "#TapiocaRules2026";
+        this.contraseniaCorrecta = process.env.REACT_APP_PASSWORD;
     }
 
     enviarLogin = (e) => {
