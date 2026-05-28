@@ -27,6 +27,11 @@ class Crear extends React.Component {
         return;
       }
 
+      if (!nombre || !genero || !contacto || (contacto === "telefono" && !telefono) || (contacto === "correo" && !correo)) {
+        alert('Error: Faltan datos.');
+        return;
+      }
+
       const tunnelUrl = "https://stubbed-audience-say.ngrok-free.dev/membresias/?insertar=1";
 
         const headers = {
