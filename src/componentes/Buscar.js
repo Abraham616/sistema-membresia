@@ -71,6 +71,10 @@ class Buscar extends React.Component{
     }
 
     quitarSello = (id, nombreUsuario) => {
+        const confirmacion = window.confirm('¿Estás seguro de que deseas quitar un sello?');
+        if (!confirmacion) {
+            return;
+        }
         if (!this.usuarioExiste(id)) {
             alert('El usuario no existe');
             return;

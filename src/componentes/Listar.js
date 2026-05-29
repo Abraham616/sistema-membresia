@@ -103,6 +103,11 @@ class Listar extends React.Component {
     }
 
     quitarSello = (id, nombreUsuario) => {
+        const confirmacion = window.confirm('¿Estás seguro de que deseas quitar un sello?');
+        if (!confirmacion) {
+            return;
+        }
+
         const tunnelUrl = `https://stubbed-audience-say.ngrok-free.dev/membresias/?quitar_sello=${id}`;
 
         const headers = {
