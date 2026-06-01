@@ -32,7 +32,21 @@ class Crear extends React.Component {
         return;
       }
 
-      const tunnelUrl = "https://stubbed-audience-say.ngrok-free.dev/membresias/?insertar=1";
+      //validar que en el nombre no haya numeros
+      if (/\d/.test(nombre)) {
+        alert('Error: El nombre no puede contener números.');
+        return;
+      }
+
+      //validar que el numero sea de minimo 10 digitos
+      if (contacto === "telefono" && telefono.length < 10) {
+        alert('Error: El número de teléfono debe tener al menos 10 dígitos.');
+        return;
+      }
+
+      const baseUrl = process.env.REACT_APP_URL || 'https://stubbed-audience-say.ngrok-free.dev/membresias/';
+      const tunnelUrl = `${baseUrl}?insertar=1`;
+      const sucursalSeleccionada = localStorage.getItem('sucursalSeleccionada');
 
         const headers = {
             'ngrok-skip-browser-warning': 'true'

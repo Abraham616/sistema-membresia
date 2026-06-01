@@ -19,7 +19,12 @@ class HistorialForm extends React.Component {
 
     cargarHistorial = () => {
         const { usuarioId } = this.state;
-        const tunnelUrl = `https://stubbed-audience-say.ngrok-free.dev/membresias/?historial=${usuarioId}`;
+        const baseUrl = process.env.REACT_APP_URL;
+        const historialTemplate = process.env.REACT_APP_URL_HISTORIAL;
+        const tunnelUrl = historialTemplate
+            ? historialTemplate.replace('${usuarioId}', encodeURIComponent(usuarioId))
+            : `${baseUrl}?historial=${encodeURIComponent(usuarioId)}`;
+        const sucursalSeleccionada = localStorage.getItem('sucursalSeleccionada');
 
         const headers = {
             'ngrok-skip-browser-warning': 'true'

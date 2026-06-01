@@ -8,7 +8,12 @@ function Recompensas() {
     const [tipoMensaje, setTipoMensaje] = useState(""); // "success" o "error"
 
     const aplicarRecompensa = (tipo) => {
-        const tunnelUrl = `https://stubbed-audience-say.ngrok-free.dev/membresias/?recompensa=${id}`;
+        const baseUrl = process.env.REACT_APP_URL;
+        const recompensaTemplate = process.env.REACT_APP_URL_RECO;
+        const tunnelUrl = recompensaTemplate
+            ? recompensaTemplate.replace('${id}', encodeURIComponent(id))
+            : `${baseUrl}?recompensa=${encodeURIComponent(id)}`;
+        const sucursalSeleccionada = localStorage.getItem('sucursalSeleccionada');
         const headers = {
             'ngrok-skip-browser-warning': 'true',
             'Content-Type': 'application/json'

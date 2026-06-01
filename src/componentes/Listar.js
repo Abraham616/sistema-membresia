@@ -16,7 +16,7 @@ class Listar extends React.Component {
 
     cargardatos(){
 
-        const tunnelUrl = "https://stubbed-audience-say.ngrok-free.dev/membresias/";
+        const tunnelUrl = process.env.REACT_APP_URL;
 
         const headers = {
             'ngrok-skip-browser-warning': 'true'
@@ -61,7 +61,11 @@ class Listar extends React.Component {
     }
 
     agregarSello = (id, nombreUsuario) => {
-        const tunnelUrl = `https://stubbed-audience-say.ngrok-free.dev/membresias/?agregar_sello=${id}`;
+        const baseUrl = process.env.REACT_APP_URL;
+        const agregarSelloTemplate = process.env.REACT_APP_URL_AGREGARSELLO;
+        const tunnelUrl = agregarSelloTemplate
+            ? agregarSelloTemplate.replace('${id}', encodeURIComponent(id))
+            : `${baseUrl}?agregar_sello=${encodeURIComponent(id)}`;
         const sucursalSeleccionada = localStorage.getItem('sucursalSeleccionada');
 
         const headers = {
@@ -108,8 +112,12 @@ class Listar extends React.Component {
             return;
         }
 
-        const tunnelUrl = `https://stubbed-audience-say.ngrok-free.dev/membresias/?quitar_sello=${id}`;
-
+        const baseUrl = process.env.REACT_APP_URL;
+        const quitarSelloTemplate = process.env.REACT_APP_URL_QUITARSELLO;
+        const tunnelUrl = quitarSelloTemplate
+            ? quitarSelloTemplate.replace('${id}', encodeURIComponent(id))
+            : `${baseUrl}?quitar_sello=${encodeURIComponent(id)}`;
+        const sucursalSeleccionada = localStorage.getItem('sucursalSeleccionada');
         const headers = {
             'ngrok-skip-browser-warning': 'true',
             'Content-Type': 'application/json'
@@ -145,7 +153,8 @@ class Listar extends React.Component {
 
     
     eliminarUsuario = (id) => {
-        const tunnelUrl = `https://stubbed-audience-say.ngrok-free.dev/membresias/?borrar=${id}`;
+        const baseUrl = process.env.REACT_APP_URL;
+        const tunnelUrl = `${baseUrl}?borrar=${encodeURIComponent(id)}`;
 
         const headers = {
             'ngrok-skip-browser-warning': 'true',

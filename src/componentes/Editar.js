@@ -17,7 +17,7 @@ class EditarForm extends React.Component {
     componentDidMount() {
         const { usuarioId } = this.state;
         
-        const tunnelUrl = `https://stubbed-audience-say.ngrok-free.dev/membresias/`;
+        const tunnelUrl = process.env.REACT_APP_URL + `?id=${encodeURIComponent(usuarioId)}`;
         
         const headers = {
             'ngrok-skip-browser-warning': 'true'
@@ -69,7 +69,7 @@ class EditarForm extends React.Component {
         return;
       }
 
-      const tunnelUrl = `https://stubbed-audience-say.ngrok-free.dev/membresias/?actualizar=${usuarioId}`;
+      const tunnelUrl = process.env.REACT_APP_URL + `?actualizar=${encodeURIComponent(usuarioId)}`;
 
         const headers = {
             'ngrok-skip-browser-warning': 'true'

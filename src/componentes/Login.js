@@ -39,6 +39,7 @@ class Login extends React.Component {
             "Galerias Metepec",
             "Gran Plaza Merida",
             "Gran Terraza",
+            "Gran Sur",
             "Hermosillo",
             "Interlomas",
             "Jardin Neza",

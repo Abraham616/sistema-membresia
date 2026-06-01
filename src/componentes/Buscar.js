@@ -29,7 +29,11 @@ class Buscar extends React.Component{
             return;
         }
 
-        const tunnelUrl = `https://stubbed-audience-say.ngrok-free.dev/membresias/?agregar_sello=${id}`;
+        const baseUrl = process.env.REACT_APP_URL;
+        const agregarSelloTemplate = process.env.REACT_APP_URL_AGREGARSELLO;
+        const tunnelUrl = agregarSelloTemplate
+            ? agregarSelloTemplate.replace('${id}', encodeURIComponent(id))
+            : `${baseUrl}?agregar_sello=${encodeURIComponent(id)}`;
         const sucursalSeleccionada = localStorage.getItem('sucursalSeleccionada');
 
         const headers = {
@@ -80,7 +84,11 @@ class Buscar extends React.Component{
             return;
         }
 
-        const tunnelUrl = `https://stubbed-audience-say.ngrok-free.dev/membresias/?quitar_sello=${id}`;
+        const baseUrl = process.env.REACT_APP_URL;
+        const quitarSelloTemplate = process.env.REACT_APP_URL_QUITARSELLO;
+        const tunnelUrl = quitarSelloTemplate
+            ? quitarSelloTemplate.replace('${id}', encodeURIComponent(id))
+            : `${baseUrl}?quitar_sello=${encodeURIComponent(id)}`;
 
         const headers = {
             'ngrok-skip-browser-warning': 'true',
@@ -121,7 +129,11 @@ class Buscar extends React.Component{
             return;
         }
 
-        const tunnelUrl = `https://stubbed-audience-say.ngrok-free.dev/membresias/?borrar=${id}`;
+        const baseUrl = process.env.REACT_APP_URL;
+        const eliminarUsuarioTemplate = process.env.REACT_APP_URL_ELIMINARUSUARIO;
+        const tunnelUrl = eliminarUsuarioTemplate
+            ? eliminarUsuarioTemplate.replace('${id}', encodeURIComponent(id))
+            : `${baseUrl}?borrar=${encodeURIComponent(id)}`;
 
         const headers = {
             'ngrok-skip-browser-warning': 'true',
@@ -162,7 +174,12 @@ class Buscar extends React.Component{
             return;
         }
 
-        const tunnelUrl = `https://stubbed-audience-say.ngrok-free.dev/membresias/?buscar=${encodeURIComponent(termino)}`;
+        const baseUrl = process.env.REACT_APP_URL;
+        const enviarFormTemplate = process.env.REACT_APP_URL_ENVIARFORM;
+        const tunnelUrl = enviarFormTemplate
+            ? enviarFormTemplate.replace('${termino}', encodeURIComponent(termino))
+            : `${baseUrl}?buscar=${encodeURIComponent(termino)}`;
+        const sucursalSeleccionada = localStorage.getItem('sucursalSeleccionada');
 
         const headers = {
             'ngrok-skip-browser-warning': 'true'
