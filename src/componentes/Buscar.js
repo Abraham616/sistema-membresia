@@ -177,7 +177,9 @@ class Buscar extends React.Component{
         const baseUrl = process.env.REACT_APP_URL;
         const enviarFormTemplate = process.env.REACT_APP_URL_ENVIARFORM;
         const tunnelUrl = enviarFormTemplate
-            ? enviarFormTemplate.replace('${termino}', encodeURIComponent(termino))
+            ? enviarFormTemplate
+                .replace('${termino}', encodeURIComponent(termino))
+                .replace('${encodeURIComponent(termino)}', encodeURIComponent(termino))
             : `${baseUrl}?buscar=${encodeURIComponent(termino)}`;
         const sucursalSeleccionada = localStorage.getItem('sucursalSeleccionada');
 
