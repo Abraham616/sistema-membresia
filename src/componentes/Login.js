@@ -21,6 +21,7 @@ class Login extends React.Component {
             "Antenas 2",
             "Atizapan",
             "Averanda",
+            "Bosque Real",
             "Buenavista",
             "Centro Santa Fe",
             "Centro Las Americas",
