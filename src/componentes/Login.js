@@ -38,6 +38,7 @@ class Login extends React.Component {
             "Forum Buenavista 2",
             "Galerias Coapa",
             "Galerias Metepec",
+            "Go Cuernavaca",
             "Gran Plaza Merida",
             "Gran Terraza",
             "Gran Sur",
